@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restauración Familiar Cristiana A.R.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #ffffff;
+      --off-white: #f0ede8;
+      --dark: #0a0a0a;
+      --dark-mid: #111111;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── PARTICLES ── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px 24px 48px;
+      gap: 0;
+    }
+
+    /* ── LOGO ── */
+    .logo-container {
+      width: 100%;
+      max-width: 520px;
+      animation: fadeDown 1s ease both;
+    }
+    .logo-container img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 0 32px rgba(201,168,76,0.25));
+      transition: filter 0.4s;
+    }
+    .logo-container img:hover {
+      filter: drop-shadow(0 0 48px rgba(201,168,76,0.5));
+    }
+
+    /* ── TAGLINE ── */
+    .tagline {
+      margin-top: 28px;
+      text-align: center;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+    .tagline p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-style: italic;
+      color: var(--off-white);
+      line-height: 1.7;
+      max-width: 440px;
+    }
+    .tagline span {
+      color: var(--gold-light);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 32px auto;
+      animation: fadeIn 1s ease 0.5s both;
+    }
+
+    /* ── GRID LABEL ── */
+    .platforms-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.7);
+      margin-bottom: 22px;
+      animation: fadeIn 1s ease 0.6s both;
+    }
+
+    /* ── PLATFORM GRID ── */
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 500px;
+      animation: fadeUp 1s ease 0.7s both;
+    }
+
+    .platform-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--white);
+      transition: transform 0.25s, color 0.25s;
+    }
+    .platform-btn:hover { transform: translateY(-4px); color: var(--gold-light); }
+
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .platform-btn:hover .icon-wrap {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(201,168,76,0.3);
+    }
+    .icon-wrap svg { width: 26px; height: 26px; fill: currentColor; }
+
+    .platform-name {
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+      opacity: 0.7;
+      transition: opacity 0.25s;
+    }
+    .platform-btn:hover .platform-name { opacity: 1; }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 44px;
+      text-align: center;
+      animation: fadeIn 1s ease 1s both;
+    }
+    .footer p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      font-style: italic;
+      line-height: 1.8;
+    }
+    .footer strong {
+      color: rgba(201,168,76,0.5);
+      font-style: normal;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RIPPLE on click ── */
+    .icon-wrap { position: relative; overflow: hidden; }
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.4);
+      transform: scale(0);
+      animation: ripple-anim 0.5s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple-anim {
+      to { transform: scale(4); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<div class="wrapper">
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="1000079979.jpg" alt="40 Años Restauración Familiar Cristiana A.R." />
+  </div>
+
+  <!-- Tagline -->
+  <div class="tagline">
+    <p>En esta casa todos <span>amamos a Dios</span> y le servimos.</p>
+    <p style="font-size:0.88em; margin-top:8px; font-style:normal; opacity:0.7;">
+      Amamos y servimos a Dios amándote y sirviéndote a ti
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="platforms-label">Encuéntranos en</p>
+
+  <!-- Platform buttons -->
+  <div class="platforms">
+
+    <!-- Instagram -->
+    <a class="platform-btn" href="https://www.instagram.com/restauracionsjr/" target="_blank" rel="noopener" aria-label="Instagram">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Instagram</span>
+    </a>
+
+    <!-- Facebook -->
+    <a class="platform-btn" href="https://www.facebook.com/restauracionsjr" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Facebook</span>
+    </a>
+
+    <!-- Spotify -->
+    <a class="platform-btn" href="https://open.spotify.com/show/2kvGX7iLuiENwALSPhIkmB?si=6bee66dc318c42ca" target="_blank" rel="noopener" aria-label="Spotify">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Spotify</span>
+    </a>
+
+    <!-- Apple Podcasts -->
+    <a class="platform-btn" href="https://podcasts.apple.com/mx/search?term=RESTAURACION%20FAMILIAR%20CRISTIANA" target="_blank" rel="noopener" aria-label="Apple Podcasts">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm7.6 1.8a8.38 8.38 0 018.385 8.085v.296a8.376 8.376 0 01-3.277 6.662 1.435 1.435 0 01-2.244-1.13v-.134c0-.424.21-.824.55-1.088a5.938 5.938 0 002.37-4.745 5.95 5.95 0 00-5.949-5.949 5.95 5.95 0 00-5.949 5.95 5.938 5.938 0 002.412 4.78c.337.264.544.663.544 1.083v.148a1.432 1.432 0 01-2.237 1.12 8.375 8.375 0 01-3.273-6.66A8.38 8.38 0 0112.94 1.8zm-.003 3.825a4.557 4.557 0 014.556 4.556 4.543 4.543 0 01-1.994 3.763c-.35.243-.561.64-.561 1.064v2.329c0 .83-.67 1.5-1.5 1.5h-.5a1.5 1.5 0 01-1.5-1.5v-2.303c0-.428-.214-.83-.567-1.073A4.543 4.543 0 018.38 10.18a4.557 4.557 0 014.556-4.556zm0 2.18a1.35 1.35 0 100 2.7 1.35 1.35 0 000-2.7z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Apple Podcasts</span>
+    </a>
+
+    <!-- Amazon Music -->
+    <a class="platform-btn" href="https://music.amazon.com.mx/podcasts/b5244823-fde9-4f61-8fa6-e3346466fed2/restauración-familiar-cristiana-sjr" target="_blank" rel="noopener" aria-label="Amazon Music">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654C17.98 22.55 14.2 23.4 10.156 23.4c-4.528 0-8.69-1.23-12.49-3.69-.418-.265-.474-.536-.13-.67l.51-.02zM7.898 9.66c0-1.66.38-3.06 1.145-4.21.763-1.15 1.9-1.73 3.41-1.73 1.165 0 2.057.35 2.67 1.04V3.9h3.49v9.865c0 1.19.023 1.91.07 2.16H15.4c-.04-.165-.067-.658-.09-1.48-.61.77-1.55 1.155-2.82 1.155-1.485 0-2.6-.56-3.34-1.68-.74-1.12-1.11-2.49-1.11-4.11l-.14-.15zm3.55.33c0 .82.09 1.52.28 2.09.33 1.01.93 1.51 1.8 1.51.93 0 1.57-.46 1.93-1.38.21-.56.31-1.24.31-2.03V9.5c0-.77-.1-1.43-.31-1.96-.36-.9-1-1.35-1.92-1.35-.88 0-1.48.49-1.81 1.46-.19.56-.28 1.27-.28 2.14v.2zm-5.2-6.09h3.52v9.5c0 .75-.04 1.35-.04 1.8H6.27v-1.08c-.65.87-1.56 1.3-2.73 1.3-1.14 0-1.99-.42-2.54-1.26-.56-.84-.84-1.93-.84-3.28V3.9h3.52v7.82c0 .54.07.95.2 1.22.22.46.6.69 1.14.69.76 0 1.28-.35 1.56-1.04.17-.42.25-.96.25-1.63V3.9h.01z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Amazon Music</span>
+    </a>
+
+    <!-- Deezer -->
+    <a class="platform-btn" href="https://link.deezer.com/s/33kUbukXW2TfMVR4cacdR" target="_blank" rel="noopener" aria-label="Deezer">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.944 16.412H24v1.665h-5.056zM18.944 13.67H24v1.665h-5.056zM18.944 10.929H24v1.665h-5.056zM18.944 19.153H24v1.665h-5.056zM13.572 19.153h5.056v1.665h-5.056zM13.572 16.412h5.056v1.665h-5.056zM13.572 13.67h5.056v1.665h-5.056zM8.201 19.153h5.056v1.665H8.201zM8.201 16.412h5.056v1.665H8.201zM2.83 19.153h5.056v1.665H2.83zM0 19.153h2.517v1.665H0zM13.572 10.929h5.056v1.665h-5.056zM8.201 10.929h5.056v1.665H8.201zM8.201 13.67h5.056v1.665H8.201z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Deezer</span>
+    </a>
+
+    <!-- YouTube -->
+    <a class="platform-btn" href="https://youtube.com/@restauracionsjr?si=VetdgDFLKks0ugk_" target="_blank" rel="noopener" aria-label="YouTube">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+        </svg>
+      </div>
+      <span class="platform-name">YouTube</span>
+    </a>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="divider" style="margin-bottom:20px;"></div>
+    <p>
+      <strong>Restauración Familiar Cristiana A.R.</strong><br/>
+      En esta casa todos amamos a Dios y le servimos
+    </p>
+  </div>
+
+</div>
+
+<script>
+  // ── Floating particles ──
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 4 + 2;
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      animation-duration:${8 + Math.random() * 14}s;
+      animation-delay:${Math.random() * 12}s;
+    `;
+    container.appendChild(p);
+  }
+
+  // ── Ripple effect on icon click ──
+  document.querySelectorAll('.icon-wrap').forEach(wrap => {
+    wrap.addEventListener('click', e => {
+      const r = document.createElement('span');
+      r.classList.add('ripple');
+      const rect = wrap.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+      wrap.appendChild(r);
+      setTimeout(() => r.remove(), 600);
+    });
+  });
+</script>
+</body>
+</html>
