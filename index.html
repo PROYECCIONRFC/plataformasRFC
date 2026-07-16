@@ -165,6 +165,46 @@
     }
     .platform-btn:hover .platform-name { opacity: 1; }
 
+    /* ── LOCATION SECTION ── */
+    .location-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+      color: var(--gold-light);
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto 14px;
+      line-height: 1.4;
+    }
+    .location-address {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--off-white);
+      opacity: 0.85;
+      line-height: 1.7;
+      max-width: 340px;
+      margin: 0 auto 24px;
+    }
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: 12px 26px;
+      transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .map-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+      box-shadow: 0 0 20px rgba(201,168,76,0.3);
+      transform: translateY(-2px);
+    }
+
     /* ── FOOTER ── */
     .footer {
       margin-top: 44px;
@@ -322,30 +362,30 @@
   <!-- Sub-divider: Células -->
   <div class="divider" style="margin-top:36px;"></div>
 
-  <p class="platforms-label">Células en Casa</p>
+  <p class="platforms-label">SOS</p>
 
   <div class="platforms">
 
     <!-- Células Varones SOS -->
-    <a class="platform-btn" href="https://proyeccionrfc.github.io/Celulas-varones/" target="_blank" rel="noopener" aria-label="Varones SOS">
+    <a class="platform-btn" href="https://github.com/PROYECCIONRFC/Celulas-varones" target="_blank" rel="noopener" aria-label="Varones SOS">
       <div class="icon-wrap">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="5" r="2.6"/>
           <path d="M9 9L15 9L16 22L8 22Z"/>
         </svg>
       </div>
-      <span class="platform-name">Varones</span>
+      <span class="platform-name">Varones SOS</span>
     </a>
 
     <!-- Células Mujeres SOS -->
-    <a class="platform-btn" href="https://proyeccionrfc.github.io/Celulas-mujeres/" target="_blank" rel="noopener" aria-label="Mujeres SOS">
+    <a class="platform-btn" href="https://github.com/PROYECCIONRFC/Celulas-mujeres" target="_blank" rel="noopener" aria-label="Mujeres SOS">
       <div class="icon-wrap">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="5" r="2.6"/>
           <path d="M11 9L13 9L16.5 17L13.2 17L13.6 22L10.4 22L10.8 17L7.5 17Z"/>
         </svg>
       </div>
-      <span class="platform-name">Mujeres</span>
+      <span class="platform-name">Mujeres SOS</span>
     </a>
 
   </div>
